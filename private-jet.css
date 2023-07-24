@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Manrope:wght@300&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Forum', cursive;
+}
+
+a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #fff; 
+}
+
+a:active {
+    text-decoration: none;
+    color: #333333; 
+}
+
+a:visited {
+    color: #000;
+}
+
+.logo {
+    position: absolute;
+    margin: 3vh 2vw;
+    height: 64px; 
+    width: 64px;
+}
+
+/* NAV BAR */
+nav {
+    width: 100%;
+    height: 12vh;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+    list-style: none;
+    font-weight: 300;
+}
+
+/* HAMBURGER NAVIGATION */
+nav .navbar-toggler {
+    display: none;
+    height: min-content;
+    margin: 10px -20px 5px 0;
+    cursor: pointer;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    z-index: 60;
+}
+
+nav .navbar-toggler .bar { 
+    width: 30px;
+    height: 4px;
+    margin-bottom: 5px;
+    background: #404040;
+    border-radius: 100px;
+    transition: 0.4s;
+}
+
+input {
+    display: none;
+}
+
+input:checked ~ nav ul {
+    transform: translateY(0);
+}
+
+input:checked ~ nav .navbar-toggler {
+    margin-top: 35px;
+}
+
+@media (max-width: 675px) {
+    nav ul {
+        display: grid;
+        justify-content: right;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%); 
+        z-index: 50;
+        transition: .6s; 
+        gap: 10px;
+    }
+
+    nav ul li {
+        padding-left: 35px;
+    }
+
+    nav .navbar-toggler {
+        display: grid !important; 
+        z-index: 60;
+    }
+
+    .logo {
+        margin: 3vh 45vw;
+    }
+}
+
+
+/* MAIN CSS */
+body {
+    background: #e0d1cb;
+    background-image: linear-gradient( rgba(27,50,112,0), #e0d1cb), url(images/cloud-sky-twilight-time.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bookTitle {
+    width: auto;
+    height: 175px;
+    display: grid;
+    place-items: center;
+}
+
+.bookTitle h1 {
+    font-size: 60px;
+    font-weight: 300;
+    margin-top: 75px;
+}
+
+
+
+/* PRIVATE JET SECTION */
+.container {
+    display: grid;
+    place-items: center;
+    height: 1100px;
+}
+
+.sub-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 1100px;
+    height: 1000px;
+}
+
+@media (max-width: 1200px) {
+    .sub-container {
+        width: 90vw;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+.text-section {
+    width: 560px;
+    height: auto;
+}
+
+.text-section h1 {
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.text-section p {
+    width: 520px;
+    margin-top: 5px;
+    font-size: 17px;
+    font-family: 'Manrope';
+}
+
+.service-includes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content;
+    width: 560px;
+    height: 600px;
+    place-items: center;
+}
+
+.icons {
+    display: grid;
+    place-items: center;
+    width: 75px;
+    height: 600px;
+}
+
+.service-text {
+    display: grid;
+    align-items: center;
+    justify-content: left;
+    width: 495px;
+    height: 600px;
+}
+
+.service-text p {
+    margin-left: 15px;
+}
+
+.form-section {
+    display: grid;
+    place-items: center;
+    width: 540px;
+    height: 1000px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+    width: 540px;
+    height: 900px;
+}
+
+label {
+    margin-left: 25px;
+    font-family: 'Manrope';
+    color: #756363;
+}
+
+form input {
+    font-family: 'Manrope';
+    font-size: 18px;
+    display: block;
+    width: 400px;
+    height: 50px;
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ad9898;
+}
+
+textarea {
+    font-family: 'Manrope';
+    font-size: 18px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ad9898;
+    width: 400px;
+    height: 125px;
+    resize: none;
+}
+
+@media (max-width: 675px) {
+    .service-includes {
+        width: 400px;
+    }
+
+    .service-text {
+        width: 350px;
+    }
+
+    .service-text p {
+        width: 350px;
+        margin-left: 0;
+    }
+
+    .text-section {
+        width: 90vw;
+    }
+
+    .text-section p {
+        width: 350px;
+    }
+
+    .form-section {
+        width: 450px;
+    }
+
+    form {
+        width: 450px;
+    }
+}

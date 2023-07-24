@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Manrope:wght@300&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Forum', cursive;
+}
+
+a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #fff; 
+}
+
+a:active {
+    text-decoration: none;
+    color: #333333; 
+}
+
+a:visited {
+    color: #000;
+}
+
+.logo {
+    position: absolute;
+    margin: 3vh 2vw;
+    height: 64px; 
+    width: 64px;
+}
+
+/* NAV BAR */
+nav {
+    width: 100%;
+    height: 12vh;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+    list-style: none;
+    font-weight: 300;
+}
+
+/* HAMBURGER NAVIGATION */
+nav .navbar-toggler {
+    display: none;
+    height: min-content;
+    margin: 10px -20px 5px 0;
+    cursor: pointer;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    z-index: 60;
+}
+
+nav .navbar-toggler .bar { 
+    width: 30px;
+    height: 4px;
+    margin-bottom: 5px;
+    background: #404040;
+    border-radius: 100px;
+    transition: 0.4s;
+}
+
+input {
+    display: none;
+}
+
+input:checked ~ nav ul {
+    transform: translateY(0);
+}
+
+input:checked ~ nav .navbar-toggler {
+    margin-top: 35px;
+}
+
+@media (max-width: 675px) {
+    nav ul {
+        display: grid;
+        justify-content: right;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%); 
+        z-index: 50;
+        transition: .6s; 
+        gap: 10px;
+    }
+
+    nav ul li {
+        padding-left: 35px;
+    }
+
+    nav .navbar-toggler {
+        display: grid !important; 
+        z-index: 60;
+    }
+
+    .logo {
+        margin: 3vh 45vw;
+    }
+}
+
+
+/* MAIN CSS */
+body {
+    background: #e0d1cb;
+    background-image: linear-gradient( rgba(27,50,112,0), #e0d1cb), url(images/cloud-sky-twilight-time.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bookTitle {
+    width: auto;
+    height: 175px;
+    display: grid;
+    place-items: center;
+}
+
+.bookTitle h1 {
+    font-size: 60px;
+    font-weight: 300;
+    margin-top: 75px;
+}
+
+.booking-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.bookings-container {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px 25px;
+    width: 75%;
+    padding-top: 60px;
+    margin-bottom: 5%;
+}
+
+.booking {
+    background: #424242;
+    width: 530px;
+    height: 175px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.booking h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 50px;
+    font-weight: normal;
+    color: #fff;
+    text-align: center;
+}
+
+.booking-info {
+    width: inherit;
+    height: 415px;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.booking-info p {
+    font-family: 'Manrope';
+    font-weight: 350;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+@media (max-width: 675px) {
+    .booking {
+        width: 400px;
+    }
+
+    .booking h1 {
+        font-size: 42px;
+    }
+}
+
+.booking:hover .bg{
+    transform: scale(1.15);
+}
+
+.booking:hover {
+    transform: none;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.bg.private-jet {background: url(images/private-jet.png); background-position: center; background-size: cover;}
+.bg.private-heli {background: url(images/private-heli.png); background-position: center; background-size: cover;}
+.bg.yachts {background: url(images/yachts.png); background-position: center; background-size: cover;}
+.bg.villas {background: url(images/villas.png); background-position: center; background-size: cover;}
+.bg.hotels {background: url(images/hotels.png); background-position: center; background-size: cover;}
+.bg.supercars {background: url(images/supercars.png); background-position: center; background-size: cover;}
+
+.request-container {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 125px;
+}
+
+.request-button {
+    display: grid;
+    place-items: center;
+    width: 250px;
+    height: 55px;
+    background: #000;
+    border-radius: 50px;
+}
+
+.request-button h2 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 22.5px;
+}
+
+.request-cont-outline {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 25px;
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+}

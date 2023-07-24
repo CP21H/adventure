@@ -1,0 +1,909 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Forum', cursive;
+}
+
+a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #fff; 
+}
+
+a:active {
+    text-decoration: none;
+    color: #333333; 
+}
+
+a:visited {
+    color: #000;
+}
+
+.logo {
+    position: absolute;
+    margin: 3vh 2vw;
+    height: 64px; 
+    width: 64px;
+}
+
+.adventure {
+    display: grid;
+    place-items: center;
+    padding-top: 15vh;
+    color: #fff;
+    font-size: 25vh;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(22,81,113,0), rgba(22,81,113,0), rgba(22,81,113,1)), url(background1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 1200px){
+    .adventure {font-size: 15vh}
+}
+
+@media screen and (max-width: 675px){
+    .adventure {font-size: 10vh}
+}
+
+
+/* NAV BAR */
+nav {
+    width: 100%;
+    height: 12vh;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+    list-style: none;
+    font-weight: 300;
+}
+
+/* TOP RATED EXPERIENCES */
+.rated {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(#165171, #eddaf1);
+}
+
+.topRated {
+    text-align: center;
+    width: 100%;
+    color: #000;
+    font-size: 50px;
+    padding-top: 20vh;
+    padding-bottom: 3vh;
+
+    background: url(images/diamond.png);
+    background-size: 150px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 95%;
+}
+
+.experiences-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    margin-top: 25px;
+    margin-left: 30px;
+    height: 60vh;
+    
+    flex-wrap: nowrap;
+
+    .experience {
+        display: inline-block;
+        margin-right: 30px;
+    }
+}
+
+.experiences-container::-webkit-scrollbar {
+    width: 20px;
+    height: 12.5px;
+}
+
+.experiences-container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+.experiences-container::-webkit-scrollbar-thumb {
+    background: #b3a4b6;
+    border-radius: 10px;
+}
+
+/* TOP RATED EXPERIENCES -- INDIVIDUAL CARDS */
+.experience {
+    width: 325px;
+    height: 525px;
+    border-radius: 10px;
+    background-color: #404040;
+    overflow: hidden;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.bg.sweden {background: url(images/sweden.jpeg); background-position: center; background-size: cover;}
+.bg.norway {background: url(images/norway.jpeg); background-position: center; background-size: cover;}
+.bg.mexico {background: url(images/mexico.jpeg); background-position: center; background-size: cover;}
+.bg.mexico2 {background: url(images/mexico2.jpeg); background-position: center; background-size: cover;}
+.bg.mexico3 {background: url(images/mexico3.jpeg); background-position: center; background-size: cover;}
+.bg.south-korea {background: url(images/southkorea.jpeg); background-position: center; background-size: cover;} 
+.bg.japan {background: url(images/japan.jpg); background-position: center; background-size: cover;}
+.bg.europeanSampler {background: url(images/classic.jpg); background-position: center; background-size: cover;}
+.bg.colombia {background: url(images/colombia.jpg); background-position: center; background-size: cover;}
+
+.experience:hover .bg{
+    transform: scale(1.15);
+}
+
+.experience:hover .bg.experience-content {
+    transform: none;
+}
+
+.experience-content {
+    margin-top: 275px;
+    height: 250px;
+    overflow: hidden;
+    
+    font-weight: normal;
+    color: #fff;
+    margin-left: 25px;
+}
+
+.experience-content p {
+    width: 50%;
+    height: auto;
+    font-family: Trebuchet MS;
+}
+
+.experience-content h1 {
+    width: 100%;
+    height: auto;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+.price {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+/* HAMBURGER NAVIGATION */
+nav .navbar-toggler {
+    display: none;
+    height: min-content;
+    margin: 10px -20px 5px 0;
+    cursor: pointer;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    z-index: 60;
+}
+
+nav .navbar-toggler .bar { 
+    width: 30px;
+    height: 4px;
+    margin-bottom: 5px;
+    background: #404040;
+    border-radius: 100px;
+    transition: 0.4s;
+}
+
+input {
+    display: none;
+}
+
+input:checked ~ nav ul {
+    transform: translateY(0);
+}
+
+input:checked ~ nav .navbar-toggler {
+    margin-top: 35px;
+}
+
+@media (max-width: 675px) {
+    nav ul {
+        display: grid;
+        justify-content: right;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%); 
+        z-index: 50;
+        transition: .6s; 
+        gap: 10px;
+    }
+
+    nav ul li {
+        padding-left: 35px;
+    }
+
+    nav .navbar-toggler {
+        display: grid !important; 
+        z-index: 60;
+    }
+
+    .logo {
+        margin: 3vh 45vw;
+    }
+}
+
+/* LUXURY PACKAGES SECTION */
+.packages-section {
+    height: 110vh;
+    width: 100%;
+    background: linear-gradient(#eddaf1, #cfd6c6);
+}
+
+.packages-title {
+    padding-top: 225px;
+    padding-bottom: 25px;
+    padding-left: 250px;
+    width: 100%;
+    font-size: 60px;
+}
+
+.view-all {
+    margin-left: 250px;
+    width: 150px;
+    height: 35px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+    border-color: #000;
+}
+
+.view-all h1 {
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+    font-weight: normal;
+    width: 150px;
+    height: 35px;
+}
+
+.view-all:hover {
+    background: #000;
+    transition: 0.4s;
+}
+
+.lux-pack-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 400px 400px 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    margin-top: 25px;
+    margin-left: 30px;
+    height: 60vh;
+    
+    flex-wrap: nowrap;
+
+    .experience {
+        display: inline-block;
+        margin-right: 30px;
+    }
+}
+
+.lux-pack-container::-webkit-scrollbar {
+    visibility: hidden;
+    width: 20px;
+    height: 12.5px;
+}
+
+.lux-pack-container::-webkit-scrollbar-track {
+    visibility: hidden;
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+.lux-pack-container::-webkit-scrollbar-thumb {
+    visibility: hidden;
+    background: #e99660;
+    border-radius: 10px;
+}
+
+.bg.best-seller {background: url(images/best-seller.jpeg); background-position: center; background-size: cover;}
+.bg.romantic-destinations {background: url(images/romantic-destinations.png); background-position: center; background-size: cover;}
+.bg.adventure-tours {background: url(images/adventure-tours.jpeg); background-position: center; background-size: cover;}
+
+.lux-pack-container h1 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 85px;
+    font-size: 30px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.diamond-lux {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    transform: scaleX(1.1);
+}
+
+.diamond-lux-outer {
+    left: 0;
+    width: 132px;
+    height: 132px;
+    border: 1px solid #79655e;
+    transform: rotate(45deg) skew(20deg,20deg);
+}
+
+.diamond-lux-inner {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    transform: rotate(45deg) skew(20deg,20deg);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.diamond-lux h2 {
+    position: absolute;
+    font-size: 35px;
+    text-align: center;
+    font-weight: normal;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.diamond-lux p {
+    position: absolute;
+    font-size: 20px;
+    color: #fff;
+    margin-top: 35px;
+}
+
+@media (max-width: 1250px) {
+    .lux-pack-container {
+        justify-content: left;
+    }
+
+    .packages-title {
+        padding-left: 50px;
+    }
+
+    .view-all {
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .lux-pack-container::-webkit-scrollbar {
+        visibility: visible;
+    }
+    
+    .lux-pack-container::-webkit-scrollbar-track {
+        visibility: visible;
+    }
+    
+    .lux-pack-container::-webkit-scrollbar-thumb {
+        visibility: visible;
+    }
+}
+
+
+
+
+
+/* BOOK WITH US SECTION */
+.book-with-us-section {
+    background: url(background3.jpeg);
+    background-color: #e3d5cd;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.booking-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.bookings-container {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px 25px;
+    width: 75%;
+    padding-top: 60px;
+    margin-bottom: 5%;
+}
+
+.booking {
+    background: #424242;
+    width: 600px;
+    height: 215px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.booking h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 50px;
+    font-weight: normal;
+    color: #fff;
+    text-align: center;
+}
+
+@media (max-width: 675px) {
+    .booking h1 {
+        font-size: 42px;
+    }
+}
+
+.booking:hover .bg{
+    transform: scale(1.15);
+}
+
+.booking:hover {
+    transform: none;
+}
+
+.bg.private-jet {background: url(images/private-jet.png); background-position: center; background-size: cover;}
+.bg.private-heli {background: url(images/private-heli.png); background-position: center; background-size: cover;}
+.bg.yachts {background: url(images/yachts.png); background-position: center; background-size: cover;}
+.bg.villas {background: url(images/villas.png); background-position: center; background-size: cover;}
+.bg.hotels {background: url(images/hotels.png); background-position: center; background-size: cover;}
+.bg.supercars {background: url(images/supercars.png); background-position: center; background-size: cover;}
+
+
+
+/* CUSTOMISE TRIP SECTION */
+.custom-trip-section {
+    height: 110vh;
+    width: 100%;
+    background: linear-gradient(#e3d5cd, #e0d1cb);
+}
+
+.topRated.nobg {
+    font-size: 55px;
+    background: none;
+}
+
+@media (max-width: 1000px) {
+    .topRated.nobg {
+        font-size: 40px;
+    }
+}
+
+.cts-main {
+    display: grid;
+    place-items: center;
+    border-style: none;
+}
+
+.cts-main-text {
+    display: grid;
+    place-items: left;
+    line-height: 50px;
+    border-style: none;
+}
+
+.cts-main-text p {
+    font-family: Segoe UI;
+    font-weight: 400;
+    font-size: 16px;
+    color:#202020;
+    line-height: 30px;
+}
+
+.cts-main-text h1 {font-weight: normal; font-size: 35px; padding-bottom: 5px;}
+
+.cts-lux-diamonds {
+    position: absolute;
+    margin-right: 525px;
+    border-style: none;
+
+    .diamond-lux-outer {
+        width: 75px;
+        height: 75px;
+        border: 1px solid #fff;
+    }
+}
+
+.diamond-lux.one {
+    margin-bottom: 100px;
+}
+
+.diamond-lux.one h2 {
+    margin-bottom: 0;
+    color: #000;
+}
+
+.diamond-lux.two h2 {
+    margin-bottom: 0;
+    color: #000;
+}
+
+.diamond-lux.three {
+    margin-top: 100px;
+}
+
+.diamond-lux.three h2 {
+    margin-bottom: 0;
+    color: #000;
+}
+
+.trip-req {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+.trip-req-button {
+    display: grid;
+    place-items: center;
+    margin-top: 60px;
+    width: 325px;
+    height: 55px;
+    background: #000;
+    border-radius: 50px;
+}
+
+.trip-req-button h2 {
+    color: #fff;
+    font-weight: normal;
+}
+
+.trip-req-button a:link{
+    position: absolute;
+    width: 325px;
+    height: 55px;
+}
+
+.trip-req-outline {
+    position:absolute;
+    display: grid;
+    place-items: center;
+    width: 275px;
+    height: 55px;
+    margin-top: 50px;
+    border-radius: 35px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+}
+
+.trip-req-deco {
+    position: absolute;
+    background: url(images/footer-diamonds.png);
+    background-size: contain;
+    width: 100px;
+    height: 115px;
+    margin-top: 62.5px;
+}
+
+.cts-footer {
+    display: grid;
+    place-items: center;
+    margin-top: 45px;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: Segoe UI;
+}
+
+@media (max-width: 675px) {
+    .cts-main-text {
+        padding-left: 100px;
+    }
+
+    .cts-lux-diamonds {
+        margin-right: 375px;
+    }
+}
+
+
+/* WEEKLY NEWS SECTION */
+.weekly-news-section {
+    display: grid;
+    place-items: center;
+    height: 60%;
+    width: 100%;
+    background: #e0d1cb;
+    border-style: none;
+}
+
+.wn-container {
+    height: 565px;
+    width: 1120px;
+    background: url(images/weekly-newsletter.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    border-style: none;
+    z-index: 2;
+}
+
+.wn-main-text {
+    width: 450px;
+    margin-top: 100px;
+    margin-left: 175px;
+    font-weight: normal;
+    color: #fff;
+    border-style: none;
+
+    .wn-title {
+        font-size: 60px;
+    }
+
+    .wn-nm-text {
+        margin-top: 15px;
+        font-family: Segoe UI;
+        font-size: 17px;
+    }
+}
+
+.wn-email-container {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 150px;
+    border-style: none;
+}
+
+.wn-email {
+    display: grid;
+    place-items: center;
+    width: 750px;
+    height: 55px;
+    border-color: #fff;
+    border-width: 1px; 
+    border-style: solid;
+    border-radius: 50px;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    z-index: 1;
+}
+
+.wn-email a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+.wn-outline {
+    position: absolute;
+    margin-top: 15px;
+    width: 1050px;
+    height: 600px;
+    border-width: 1px;
+    border-color: #fff;
+    border-radius: 15px;
+    border-style: solid;
+    z-index: 1;
+}
+
+.wn-subscribe {
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    border-radius: 50px;
+    border-style: none;
+}
+
+@media (max-width: 1120px) {
+    .wn-container {
+        width: 75vw;
+        height: 400px;
+    }
+
+    .wn-main-text {
+        margin-top: 25px;
+        margin-left: 25px;
+        width: inherit;
+
+        .wn-title {
+            font-size: 45px;
+        }
+    }
+
+    .wn-outline {
+        margin-top: 0px;
+        width: 70vw;
+        height: 435px;
+    }
+
+    .wn-email {
+        width: 90%;
+        height: 55px;
+    }
+
+    .wn-subscribe {
+        width: 250px;
+    }
+}
+
+
+/* CUSTOMER REVIEWS SECTION */
+.customer-reviews-section {
+    height: 150vh;
+    width: 100%;
+    background-image: linear-gradient(#e0d1cb, rgba(27,50,112,0)), url(images/reviews-after2);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.experiences-container.reviews-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    height: 90vh;
+
+    .review {
+        display: inline-block;
+        margin-right: 30px;
+    }
+}
+
+.experiences-container.reviews-container::-webkit-scrollbar-thumb {
+    /* sep color = #283e5f */
+    background: #fff;
+    border-radius: 10px;
+}
+
+.review {
+    width: 500px;
+    height: 800px;
+    border-radius: 15px;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    background:  rgba(0,0,0,0.3);
+}
+
+.review-profile {
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+.review-profile.one {background: url(images/review-one.jpeg); background-size: cover;}
+.review-profile.two {background: url(images/review-two.png); background-size: cover;}
+.review-profile.three {background: url(images/review-three.png); background-size: cover;}
+.review-profile.four {background: url(images/review-four.jpeg); background-size: cover;}
+.review-profile.five {background: url(images/review-five.jpeg); background-size: cover;}
+
+.review-content {
+    width: 425px;
+    height: 600px;
+    margin-left: 50px;
+    border-style: none;
+
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-line;
+
+    font-family: Segoe UI;
+    font-weight: 300;
+    font-size: 20px;
+    color: #fff;
+}
+
+.name {
+    font-family: Segoe UI;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+}
+
+.cr-fade-in {
+    background: linear-gradient(rgba(92, 105, 139, 0), rgba(27,50,112,1));
+    height: 210px;
+}
+
+
+/* FOOTER CONTACT SECTION */
+.footer-contact {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(#1b3270, rgba(27,50,112,0)), url(images/footer.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contact-container {
+    height: 500px;
+    width: 850px;
+    background: rgb(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-color: #fff;
+    border-width: 1px; 
+    border-style: solid;
+    border-radius: 25px;
+}
+
+.cc-title {
+    display: grid;
+    place-items: center;
+    width: auto;
+    height: 65px;
+    margin-top: 70px;
+    font-size: 60px;
+}
+
+form {
+    margin-top: 25px;
+    width: auto;
+    height: 150px;
+    display: grid;
+    place-items: center;
+}
+
+form input {
+    display: block;
+    width: 325px;
+    height: 55px;
+    background: #cccbcbbb;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff;
+    border-radius: 50px;
+
+    font-size: 20px;
+    font-family: Segoe UI;
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 900px) {
+    .contact-container {
+        height: 500px;
+        width: 450px;
+    }
+}
